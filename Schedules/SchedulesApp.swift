@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct SchedulesApp: App {
+    @StateObject var sharedData = SharedData()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(sharedData: self.sharedData)
         }
     }
 }

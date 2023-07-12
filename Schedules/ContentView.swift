@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @ObservedObject var sharedData: SharedData
     @State private var tabSelection: Tab = Tabs.schedule
     
     var body: some View {
@@ -24,6 +25,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(sharedData: SharedData())
     }
 }
