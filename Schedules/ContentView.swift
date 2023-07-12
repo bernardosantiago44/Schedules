@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var tabSelection: Tab = Tabs.schedule
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView(selection: $tabSelection) {
+            Schedule()
+                .tag(Tabs.schedule)
+                .tabItem {
+                    Label(Tabs.schedule.name, systemImage: Tabs.schedule.symbol)
+                }
         }
-        .padding()
     }
 }
 
