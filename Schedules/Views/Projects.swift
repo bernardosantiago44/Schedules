@@ -12,16 +12,27 @@ struct Projects: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
+            Group {
                 if sharedData.projects.count == 0 {
-                    Label {
-                        Text("Looks somewhat empty. Why don't you start by creating a new project.")
-                    } icon: {
-                        Image(systemName: "exclamationmark.triangle")
-                            .renderingMode(.original)
+                    VStack {
+                        Button(action: {
+                            
+                        }, label: {
+                            Image(systemName: "plus.circle.fill")
+                                .renderingMode(.original)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50)
+                                
+                        })
+                        Text("Looks somewhat empty. Why don't you start by creating a new project?")
                     }
                     .multilineTextAlignment(.center)
-
+                    .frame(maxWidth: 300)
+                } else {
+                    ScrollView {
+                        
+                    }
                 }
             }
             .navigationTitle("projects")
